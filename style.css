@@ -91,4 +91,5 @@ table{
     text-align: center;
 }
 i{
-    cursor: point
+    cursor: pointer;
+}
