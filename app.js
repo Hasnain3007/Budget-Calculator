@@ -13,23 +13,35 @@ var table = document.getElementById('table');
 var myBudget ;
 
 budgetBtn.addEventListener('click',()=>{
-    myBudget =+ budgetInput.value
+    if (budgetInput.value=='') {
+        alert('please set a budget')
+    }else{
+        myBudget =+ budgetInput.value
+    // Number(myBudget)
     balance.innerHTML = myBudget
     totalBudget.innerHTML=myBudget
     budgetInput.value=''
     console.log(typeof myBudget);
+
+    }
+   
 })
 
 
 checkAmount.addEventListener('click',()=>{
-    var itemPrice =+ productCost.value
+    if (productTiltle.value == '' || productCost.value =='') {
+        
+        alert('please set product title or cost ')
+    }else{
+        var itemPrice =+ productCost.value
+    // Number(itemPrice)
     // console.log(typeof itemPrice);
     var itemName = productTiltle.value
     totalExpenses.innerText += itemPrice
 
 
     balance.innerHTML = myBudget-itemPrice
-    
+
     productCost.value=''
     productTiltle.value=''
     table.innerHTML += `<tr id="tr"> <td>${itemName}</td> <td>${itemPrice}</td> <td><i id="delete" class="fa-solid fa-trash"></i></td></tr>`
@@ -37,5 +49,6 @@ checkAmount.addEventListener('click',()=>{
     dlt.addEventListener('click',()=>{
         document.getElementById('tr').remove()
     })
+    }
 })
 
